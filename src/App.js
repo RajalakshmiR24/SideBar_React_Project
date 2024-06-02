@@ -14,7 +14,7 @@ import Contact2 from './components/Contacts/Contact2';
 import Login from './Pages/Login';
 import Protect from './components/Protect';
 import NotFound from './Pages/NotFound';
-
+import OutletComponent from './components/OutletComponent';
 
 const App = () => {
   return (
@@ -23,18 +23,19 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Login />} />
         <Route element={<Protect />} >
-          <Route path='/home' element={<Home />} />
-          <Route path='/company' element={<Company />} />
-          <Route path='/resources' element={<Resources />} />
-          <Route path='/resources/articles' element={<Articles />} />
-          <Route path='/resources/tutorials' element={<Tutorials />} />
-          <Route path='/resources/case-studies' element={<CaseStudies />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path="/contacts/contact1/:id/:name" element={<Contact1 />} />
-          <Route path='/contacts/contact2/:id/:name' element={<Contact2 />} />
-          <Route path='*' element={<NotFound />} />
-
+          <Route element={<OutletComponent />}>
+            <Route path='/home' element={<Home />} />
+            <Route path='/company' element={<Company />} />
+            <Route path='/resources' element={<Resources />} />
+            <Route path='/resources/articles' element={<Articles />} />
+            <Route path='/resources/tutorials' element={<Tutorials />} />
+            <Route path='/resources/case-studies' element={<CaseStudies />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path="/contacts/contact1/:id/:name" element={<Contact1 />} />
+            <Route path='/contacts/contact2/:id/:name' element={<Contact2 />} />
+            <Route path='*' element={<NotFound />} />
+          </Route>
         </Route>
       </Routes>
     </>
