@@ -2,9 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 function Contact1() {
-    const { id, name } = useParams();
+    const { name } = useParams();
     return (
-        <div>Contact {id}, {name}</div>
+        <div>Contact {name}</div>
     );
 }
 
