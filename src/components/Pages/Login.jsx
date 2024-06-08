@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?(\(\+91\))?[7896]\d{9}$/;
+const phoneRegex = /^(\+91[\\-\s]?)?[0]?(91)?(\(\+91\))?[7896]\d{9}$/;
 
 const Login = () => {
   const [email, setEmail] = useState('');

@@ -10,9 +10,6 @@ const Breadcrumbs = () => {
   const [showDropdown, setShowDropdown] = useState(null);
 
   // Toggle dropdown visibility
-  const toggleDropdown = (icon) => {
-    setShowDropdown(showDropdown === icon ? null : icon);
-  };
 
   // Handle click events for message, notification, and profile
   const handleClick = (icon) => {
@@ -37,9 +34,9 @@ const Breadcrumbs = () => {
           return isLast ? (
             <li key={to} className="px-2">
               <span>{value}</span>
-            </li>
+            </li> 
           ) : (
-            <li key={to} className="px-2">
+            <li key={to} className="px-2"> {/* Corrected classNa0me to className */}
               <Link to={to} className="text-blue-600 hover:underline">
                 {value}
               </Link>
@@ -78,21 +75,21 @@ const Breadcrumbs = () => {
         
         {/* Profile Picture */}
         <div className="relative mx-2" onClick={() => handleClick('profile')}>
-        <img src={profile} alt="Profile" className="w-8 h-8 rounded-full cursor-pointer" />
-        {showDropdown === 'profile' && (
-        <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-lg shadow-md">
-        <ul className="py-2">
-        <li className="px-4 py-2">Edit Profile</li>
-        <li className="px-4 py-2">Favorite</li>
-        <li className="px-4 py-2">Settings</li>
-        <li className="px-4 py-2">Logout</li>
-        </ul>
+          <img src={profile} alt="Profile" className="w-8 h-8 rounded-full cursor-pointer" />
+          {showDropdown === 'profile' && (
+            <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-lg shadow-md">
+              <ul className="py-2">
+                <li className="px-4 py-2">Edit Profile</li>
+                <li className="px-4 py-2">Favorite</li>
+                <li className="px-4 py-2">Settings</li>
+                <li className="px-4 py-2">Logout</li>
+              </ul>
+            </div>
+          )}
         </div>
-        )}
-        </div>
-        </div>
-        </nav>
-        );
-        };
-        
-        export default Breadcrumbs;
+      </div>
+    </nav>
+  );
+};
+
+export default Breadcrumbs;

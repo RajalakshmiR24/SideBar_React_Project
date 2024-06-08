@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import gift from '../../assets/image.png';
 import journeyImg from '../../assets/journey.png';
@@ -9,7 +10,7 @@ function Home() {
     <div className="bg-gray-100 flex flex-col px-4 items-center">
       <main className="flex flex-col md:flex-row items-center mt-12 w-full max-w-6xl">
         <div className="flex flex-col items-start w-full md:w-1/2 p-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 h-full">
             Reward <span className="text-teal-500">Share</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-600">
