@@ -10,7 +10,6 @@ function AdminForm() {
     'Company',
     'Articles',
     'Tutorials',
-    'Case Studies',
     'About'
   ];
 

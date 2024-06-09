@@ -1,16 +1,17 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import gift from '../../assets/image.png';
-import journeyImg from '../../assets/journey.png';
-import foodImg from '../../assets/food.png';
-import shoppingImg from '../../assets/shopping.png';
+import Articles from '../Resources/Articles'; // Adjust the path as necessary
+import Tutorials from '../Resources/Tutorials'; // Adjust the path as necessary
+import Company from './Company'; // Adjust the path as necessary
+import About from './About'; // Adjust the path as necessary
 
 function Home() {
   return (
-    <div className="bg-gray-100 flex flex-col px-4 items-center">
+    <div className="bg-gray-100 flex flex-col items-center px-4">
       <main className="flex flex-col md:flex-row items-center mt-12 w-full max-w-6xl">
         <div className="flex flex-col items-start w-full md:w-1/2 p-4">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-800 h-full">
+          <h1 className="text-5xl md:text-7xl font-bold text-gray-800">
             Reward <span className="text-teal-500">Share</span>
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-600">
@@ -24,27 +25,16 @@ function Home() {
           </button>
         </div>
         <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0 p-5">
-          <img src={gift} alt="Gift Box" className="max-w-full h-auto" />
+          <img src={gift} alt="Gift Box" className="max-w-full h-auto rounded-lg shadow-lg" />
         </div>
       </main>
       <section className="mt-12 w-full max-w-6xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <Card 
-            image={journeyImg} 
-            category="For Journey" 
-            description="Lorem Ipsum is simply dummy text of the printing." 
-          />
-          <Card 
-            image={foodImg} 
-            category="For Food" 
-            description="Lorem Ipsum is simply dummy text of the printing." 
-          />
-          <Card 
-            image={shoppingImg} 
-            category="For Shopping" 
-            description="Lorem Ipsum is simply dummy text of the printing." 
-          />
-        </div>
+        <Articles />
+        <Tutorials />
+      </section>
+      <section className="mt-12 w-full max-w-6xl">
+        <Company />
+        <About />
       </section>
     </div>
   );
@@ -52,7 +42,7 @@ function Home() {
 
 function Card({ image, category, description }) {
   return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-200 ease-in-out transform hover:scale-105">
       <img src={image} alt="Card image" className="w-full h-48 object-cover" />
       <div className="p-4">
         <h2 className="text-xl font-semibold text-gray-800">{category}</h2>
