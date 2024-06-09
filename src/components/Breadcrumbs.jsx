@@ -6,12 +6,8 @@ const Breadcrumbs = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
-  // State to manage dropdown visibility
   const [showDropdown, setShowDropdown] = useState(null);
 
-  // Toggle dropdown visibility
-
-  // Handle click events for message, notification, and profile
   const handleClick = (icon) => {
     if (showDropdown === icon) {
       setShowDropdown(null);
@@ -34,7 +30,7 @@ const Breadcrumbs = () => {
           return isLast ? (
             <li key={to} className="px-2">
               <span>{value}</span>
-            </li> 
+            </li>
           ) : (
             <li key={to} className="px-2"> {/* Corrected classNa0me to className */}
               <Link to={to} className="text-blue-600 hover:underline">

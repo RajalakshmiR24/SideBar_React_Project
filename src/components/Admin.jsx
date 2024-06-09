@@ -58,6 +58,7 @@ function AdminForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             value={formData.name}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
@@ -68,6 +69,7 @@ function AdminForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             value={formData.description}
             onChange={handleChange}
+            required
           />
         </div>
         <div className="mb-4">
@@ -78,6 +80,7 @@ function AdminForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             value={formData.category}
             onChange={handleChange}
+            required
           >
             <option value="">Select a category</option>
             {categories.map((category, index) => (
@@ -94,6 +97,7 @@ function AdminForm() {
             className="w-full px-3 py-2 border border-gray-300 rounded-md"
             value={formData.imageUrl}
             onChange={handleChange}
+            required
           />
         </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Submit</button>

@@ -1,41 +1,62 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 const phoneRegex = /^(\+91[\\-\s]?)?[0]?(91)?(\(\+91\))?[7896]\d{9}$/;
 
+const initialData = {
+  name: '',
+  email: '',
+  password: '',
+  phone: ''
+};
+
 const Login = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
+  const [formData, setFormData] = useState(initialData);
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = {};
 
-    if (!name) {
+    if (!formData.name) {
       validationErrors.name = 'Name is required';
     }
-    if (!emailRegex.test(email)) {
+    if (!emailRegex.test(formData.email)) {
       validationErrors.email = 'Invalid email address';
     }
-    if (!passwordRegex.test(password)) {
+    if (!passwordRegex.test(formData.password)) {
       validationErrors.password = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
     }
-    if (!phoneRegex.test(phone)) {
+    if (!phoneRegex.test(formData.phone)) {
       validationErrors.phone = 'Invalid phone number';
     }
 
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      // Proceed with form submission or further processing
-      console.log('Form submitted successfully');
-      navigate('/home');
+      axios
+        .post(`${apiUrl}/contact`, formData)
+        .then((res) => {
+          console.log("Response:", res);
+          setFormData(initialData);
+          navigate('/success');
+        })
+        .catch((err) => console.error("Error submitting form:", err));
+
+      console.log("Data:", formData);
     }
   };
 
@@ -48,8 +69,9 @@ const Login = () => {
             <label className="block text-sm font-medium text-gray-700">Name</label>
             <input
               type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
             {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
@@ -58,8 +80,9 @@ const Login = () => {
             <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
             {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
@@ -68,8 +91,9 @@ const Login = () => {
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
             {errors.password && <p className="mt-2 text-sm text-red-600">{errors.password}</p>}
@@ -78,8 +102,9 @@ const Login = () => {
             <label className="block text-sm font-medium text-gray-700">Phone Number</label>
             <input
               type="tel"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
               className="w-full px-3 py-2 mt-1 border rounded-md focus:ring-blue-500 focus:border-blue-500"
             />
             {errors.phone && <p className="mt-2 text-sm text-red-600">{errors.phone}</p>}

@@ -1,11 +1,62 @@
 {
   "adminform": [
     {
-      "id": "623f",
-      "name": "Praveen",
-      "description": "Praveen Artical",
-      "category": "Articles",
+      "id": "d829",
+      "name": "Ramya",
+      "description": "Ramya company",
+      "category": "Company",
+      "imageUrl": "https://verificationexcellence.in/wp-content/uploads/2018/06/tutorials.jpg"
+    },
+    {
+      "id": "661b",
+      "name": "sasi",
+      "description": "sasi company ss",
+      "category": "Company",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREoRGyXmHy_6aIgXYqWHdOT3KjfmnuSyxypw&s"
+    },
+    {
+      "id": "21bf",
+      "name": "Praveen Kumar",
+      "description": "About Praveen",
+      "category": "About",
       "imageUrl": "https://udaipurblog.com/investwithramya/img/mob.png"
+    },
+    {
+      "id": "923d",
+      "name": "",
+      "description": "",
+      "category": "",
+      "imageUrl": ""
+    },
+    {
+      "id": "97ef",
+      "name": "Prasanth Articals",
+      "description": "Articals",
+      "category": "Articles",
+      "imageUrl": "https://img.freepik.com/free-photo/colorful-design-with-spiral-design_188544-9588.jpg"
+    },
+    {
+      "id": "d2c7",
+      "name": "Praveen Kumar",
+      "description": "Tutorials",
+      "category": "Tutorials",
+      "imageUrl": "https://th.bing.com/th/id/OIG4.LgUj9FIjzUbdTSMn0mRg"
+    }
+  ],
+  "contact": [
+    {
+      "id": "8456",
+      "name": "Praveen Kumar",
+      "email": "praveen142@gmail.com",
+      "password": "Praveen@123",
+      "phone": "8248492118"
+    },
+    {
+      "id": "4752",
+      "name": "sasi",
+      "email": "sasi123@gmail.com",
+      "password": "Sas22i@24",
+      "phone": "8939525505"
     }
   ]
 }

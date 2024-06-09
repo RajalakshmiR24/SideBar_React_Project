@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 import React from 'react';
 import gift from '../../assets/image.png';
-import Articles from '../Resources/Articles'; // Adjust the path as necessary
-import Tutorials from '../Resources/Tutorials'; // Adjust the path as necessary
-import Company from './Company'; // Adjust the path as necessary
-import About from './About'; // Adjust the path as necessary
+import Articles from '../Resources/Articles';
+import Tutorials from '../Resources/Tutorials';
+import Company from './Company';
+import About from './About';
 
 function Home() {
   return (
@@ -36,21 +35,6 @@ function Home() {
         <Company />
         <About />
       </section>
-    </div>
-  );
-}
-
-function Card({ image, category, description }) {
-  return (
-    <div className="bg-white shadow-md rounded-lg overflow-hidden transition-transform duration-200 ease-in-out transform hover:scale-105">
-      <img src={image} alt="Card image" className="w-full h-48 object-cover" />
-      <div className="p-4">
-        <h2 className="text-xl font-semibold text-gray-800">{category}</h2>
-        <p className="mt-2 text-gray-600">{description}</p>
-        <button className="mt-4 px-4 py-2 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600">
-          Learn More
-        </button>
-      </div>
     </div>
   );
 }
