@@ -1,13 +1,6 @@
 {
   "adminform": [
     {
-      "id": "d829",
-      "name": "Ramya",
-      "description": "Ramya company",
-      "category": "Company",
-      "imageUrl": "https://verificationexcellence.in/wp-content/uploads/2018/06/tutorials.jpg"
-    },
-    {
       "id": "661b",
       "name": "sasi",
       "description": "sasi company ss",
@@ -29,13 +22,6 @@
       "imageUrl": ""
     },
     {
-      "id": "97ef",
-      "name": "Prasanth Articals",
-      "description": "Articals",
-      "category": "Articles",
-      "imageUrl": "https://img.freepik.com/free-photo/colorful-design-with-spiral-design_188544-9588.jpg"
-    },
-    {
       "id": "d2c7",
       "name": "Praveen Kumar",
       "description": "Tutorials",
@@ -43,20 +29,54 @@
       "imageUrl": "https://th.bing.com/th/id/OIG4.LgUj9FIjzUbdTSMn0mRg"
     }
   ],
-  "contact": [
+  "newuser": [
     {
       "id": "8456",
-      "name": "Praveen Kumar",
-      "email": "praveen142@gmail.com",
+      "name": "Praveen Kumar s",
+      "email": "praveen14200@gmail.com",
       "password": "Praveen@123",
       "phone": "8248492118"
     },
     {
-      "id": "4752",
-      "name": "sasi",
-      "email": "sasi123@gmail.com",
-      "password": "Sas22i@24",
-      "phone": "8939525505"
+      "id": "73a4",
+      "name": "Ramya",
+      "email": "ramaya245806@gmail.com",
+      "password": "Ramya@245806",
+      "phone": "8548485965"
+    },
+    {
+      "id": "9621",
+      "name": "Raji",
+      "email": "raji123@gmail.com",
+      "password": "Raji@123",
+      "phone": "6382852852"
+    },
+    {
+      "id": "2e55",
+      "name": "Ramya",
+      "email": "Ramya@example.com",
+      "password": "Ramya@123",
+      "phone": "8548596256"
+    },
+    {
+      "id": "4906",
+      "name": "Rajalakshmi R",
+      "email": "rajalakshmi1430@gmail.com",
+      "password": "Ramya@159951",
+      "phone": "06382809217"
+    }
+  ],
+  "profile": [],
+  "signin": [
+    {
+      "id": "4016",
+      "email": "inmakesgoldentheater@gmail.com",
+      "password": "Ramya@123"
+    },
+    {
+      "id": "171e",
+      "email": "rajalakshmi245806@gmail.com",
+      "password": "Ramya@258520"
     }
   ]
 }

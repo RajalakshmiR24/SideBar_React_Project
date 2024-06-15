@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import profile from '../assets/profile.jpg'
 
-const Breadcrumbs = () => {
+const Breadcrumbs = ({ profileImage }) => { // Accept profileImage as a prop
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
@@ -32,7 +31,7 @@ const Breadcrumbs = () => {
               <span>{value}</span>
             </li>
           ) : (
-            <li key={to} className="px-2"> {/* Corrected classNa0me to className */}
+            <li key={to} className="px-2">
               <Link to={to} className="text-blue-600 hover:underline">
                 {value}
               </Link>
@@ -71,11 +70,13 @@ const Breadcrumbs = () => {
         
         {/* Profile Picture */}
         <div className="relative mx-2" onClick={() => handleClick('profile')}>
-          <img src={profile} alt="Profile" className="w-8 h-8 rounded-full cursor-pointer" />
-          {showDropdown === 'profile' && (
+        <img src={profileImage} alt="Profile" className="w-8 h-8 rounded-full cursor-pointer" />
+        {showDropdown === 'profile' && (
             <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-lg shadow-md">
               <ul className="py-2">
-                <li className="px-4 py-2">Edit Profile</li>
+                <li className="px-4 py-2">
+                  <Link to="/edit-profile" className="text-blue-600 hover:underline">Edit Profile</Link>
+                </li>
                 <li className="px-4 py-2">Favorite</li>
                 <li className="px-4 py-2">Settings</li>
                 <li className="px-4 py-2">Logout</li>

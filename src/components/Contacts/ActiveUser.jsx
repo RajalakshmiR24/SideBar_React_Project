@@ -4,14 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faDownload } from '@fortawesome/free-solid-svg-icons';
 import * as XLSX from 'xlsx';
 
-const ContactTable = () => {
+const ActiveUser = () => {
   const apiUrl = process.env.REACT_APP_API_URL;
   const [contacts, setContacts] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [currentEdit, setCurrentEdit] = useState({ id: '', name: '', email: '', phone: '' });
 
   useEffect(() => {
-    axios.get(`${apiUrl}/newuser`)
+    axios.get(`${apiUrl}/signin`)
       .then(response => {
         setContacts(response.data);
       })
@@ -19,7 +19,7 @@ const ContactTable = () => {
   }, [apiUrl]);
 
   const handleDelete = (id) => {
-    axios.delete(`${apiUrl}/newuser/${id}`)
+    axios.delete(`${apiUrl}/signin/${id}`)
       .then(() => {
         setContacts(contacts.filter(contact => contact.id !== id));
       })
@@ -44,7 +44,7 @@ const ContactTable = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    axios.put(`${apiUrl}/newuser/${currentEdit.id}`, currentEdit)
+    axios.put(`${apiUrl}/signin/${currentEdit.id}`, currentEdit)
       .then(() => {
         setContacts(contacts.map(contact => (contact.id === currentEdit.id ? currentEdit : contact)));
         handleModalClose();
@@ -69,13 +69,7 @@ const ContactTable = () => {
                 ID
               </th>
               <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-800 text-left text-xs font-semibold text-white uppercase tracking-wider">
-                Name
-              </th>
-              <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-800 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Email
-              </th>
-              <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-800 text-left text-xs font-semibold text-white uppercase tracking-wider">
-                Phone
               </th>
               <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-800 text-left text-xs font-semibold text-white uppercase tracking-wider">
                 Actions
@@ -89,13 +83,7 @@ const ContactTable = () => {
                   <p className="text-gray-900 whitespace-no-wrap">{contact.id}</p>
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                  <p className="text-gray-900 whitespace-no-wrap">{contact.name}</p>
-                </td>
-                <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <p className="text-gray-900 whitespace-no-wrap">{contact.email}</p>
-                </td>
-                <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                  <p className="text-gray-900 whitespace-no-wrap">{contact.phone}</p>
                 </td>
                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                   <button onClick={() => handleEdit(contact.id)} className="text-blue-500 hover:text-blue-700 mx-1">
@@ -173,5 +161,5 @@ const ContactTable = () => {
 );
 }
 
-export default ContactTable;
+export default ActiveUser;
 

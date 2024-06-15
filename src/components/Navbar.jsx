@@ -36,10 +36,12 @@ const Navbar = () => {
     { id: 6, text: 'About', path: '/about', icon: <FaInfoCircle size={24} /> },
     { id: 7, text: 'Contact', path: '/contact', icon: <FaPhone size={24} />, submenu: [
       { id: 8, text: 'ContactTable', path: '/contact/contacttable' },
+      { id: 9, text: 'ActiveUser', path: '/contact/activeuser' },
+
 
     ]},
-    { id: 9, text: 'Login', path: '/', icon: <FaSignInAlt size={24} /> },
-    { id: 10, text: 'Admin', path: '/adminform', icon: <FaInfoCircle size={24} /> },
+    { id: 10, text: 'Login', path: '/', icon: <FaSignInAlt size={24} /> },
+    { id: 11, text: 'Admin', path: '/adminform', icon: <FaInfoCircle size={24} /> },
   ];
 
   return (
