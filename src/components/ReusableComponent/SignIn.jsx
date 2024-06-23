@@ -1,53 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from './hooks/useForm';
+import { validateSignIn } from './utils/validation';
+import { AuthForm } from './AuthForm';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
-import AuthForm from './AuthForm';
-
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
-const initialData = {
-  email: '',
-  password: ''
-};
 
 const SignIn = () => {
-  const [formData, setFormData] = useState(initialData);
-  const [errors, setErrors] = useState({});
+  const initialData = { email: '', password: '' };
+  const { formData, errors, handleChange, handleSubmit } = useForm(initialData, validateSignIn);
   const navigate = useNavigate();
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = {};
-
-    if (!emailRegex.test(formData.email)) {
-      validationErrors.email = 'Invalid email address';
-    }
-    if (!passwordRegex.test(formData.password)) {
-      validationErrors.password = 'Password must contain at least 8 characters, including uppercase, lowercase, number, and special character';
-    }
-
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      axios
-        .post(`${apiUrl}/signin`, formData)
-        .then((res) => {
-          console.log("Response:", res);
-          setFormData(initialData);
-          navigate('/success');
-        })
-        .catch((err) => console.error("Error submitting form:", err));
-    }
+  const onSubmit = (formData) => {
+    axios.post(`${apiUrl}/signin`, formData)
+      .then((res) => {
+        console.log("Response:", res);
+        navigate('/success');
+      })
+      .catch((err) => console.error("Error submitting form:", err));
   };
 
   return (
@@ -58,7 +28,7 @@ const SignIn = () => {
           formData={formData}
           errors={errors}
           handleChange={handleChange}
-          handleSubmit={handleSubmit}
+          handleSubmit={(e) => handleSubmit(e, onSubmit)}
           isSignUp={false}
         />
         <div className="text-center">
